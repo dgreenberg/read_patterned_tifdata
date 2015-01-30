@@ -19,7 +19,7 @@ function [y, s] = read_patterned_tifdata(s, frames)
 %Afterwards one can use:
 %data = read_patterned_tifdata(s, frames) to read data without parsing/scanning the file,
 %this can give a significant speedup.
-% ---> When finished, the use should call fclose(s.fid) !!! <---
+% ---> When finished, the user should call fclose(s.fid) !!! <---
 %If a call to read is made with a filename instead of a structure as the first argument,
 %then the file handle is left open only if a second output is returned.
 %If a call that should return a file handle fails (due to bad filename, invalid file, etc.)
