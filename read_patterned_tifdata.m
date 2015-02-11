@@ -162,7 +162,7 @@ else %advance to the 2nd directory and check whether the data spacing is pattern
         assert(offset_bytes_per_frame * 2 == offset_bytes_per_frame2, 'offset between frames 1-2 is not the same as offset between frames 2-3');
     end    
     bytesreadfromoffset = max(tifinfo.StripOffsets + tifinfo.StripByteCounts); %to read frame n, the file size must be at least (n * offset_bytes_per_frame + bytesreadfromoffset) bytes
-    nframes = double(1 + floor((filesize - bytesreadfromoffset) / offset_bytes_per_frame));    
+    nframes = double(1 + floor(double(filesize - bytesreadfromoffset) / double(offset_bytes_per_frame)));    
 end
 [tifinfo.StripOffsets, tifinfo.StripByteCounts] = consolidate_strips(tifinfo.StripOffsets, tifinfo.StripByteCounts);
 fid = fopen(filename, 'r'); %FIXME memmapfile might give better performance?
